@@ -12,10 +12,9 @@ from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
 #from sklearn.tree import DecisionTreeClassifier
 training_dataset = pd.read_csv('train.csv')
-
 training_dataset = training_dataset[['Name','Pclass','Sex','Age','SibSp','Fare','SibSp','Survived']]
 '''
-Drop all the missing values
+Drop and have some fun all the missing values
 '''
 print(training_dataset['Mrs.' in  str(training_dataset[['Name']]]))
 #training_dataset.dropna(inplace = True)
