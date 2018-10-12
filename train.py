@@ -3,6 +3,7 @@ Titanic: Machine Learning from Disaster
 This program trains a classifier to predict the survival
 of a passenger aboard the Titanic
 '''
+no training no progress
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
