@@ -9,8 +9,8 @@ from sklearn.model_selection import train_test_split
 #from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn import tree
-from sklearn.ensemble import RandomForestClassifier
-#from sklearn.tree import DecisionTreeClassifier
+#from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 training_dataset = pd.read_csv('train.csv')
 
 training_dataset = training_dataset[['Name','Pclass','Sex','Age','SibSp','Fare','SibSp','Survived']]
@@ -26,8 +26,10 @@ factors_dataset = training_dataset[['Fare','Sex','Age','SibSp','Pclass']]
 X = np.array(factors_dataset)
 #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
 X_train, y_train = X, y
-log = RandomForestClassifier(n_estimators=50, max_features='sqrt')
+log = DecisionTreeClassifier(criterion='gini', max_depth=3, random_state=0)
+#log = RandomForestClassifier(n_estimators=50, max_features='sqrt')
 log.fit(X_train,y_train)
+
 y_predict = log.predict(X_test)
 #print(accuracy_score(y_test,y_predict))
 test_dataset = pd.read_csv('test.csv') 
